@@ -1,0 +1,636 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Colher de Nuvem</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', Arial, Helvetica, sans-serif;
+            background-color: #fcf9f1;
+            color: #4A2F2A;
+        }
+
+        h1, h2, h3 {
+        font-family: 'Fredoka', 'Nunito', Arial, sans-serif;
+    }
+
+        /* CABEÇALHO */
+        header {
+            background: linear-gradient(
+                rgba(231, 84, 128, 0.75),
+                rgba(255, 244, 214, 0.55)
+            ),
+            url("Imagens/opção1.png");
+
+            background-size: cover;
+            background-position: center;
+            height: 430px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 22px;
+            margin-bottom: 25px;
+        }
+
+        .botao {
+            display: inline-block;
+            background-color: #E75480;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .botao:hover {
+            background-color: #c73b65;
+            transform: scale(1.05);
+        }
+
+        /* MENU */
+        nav {
+            background-color: #4A2F2A;
+            padding: 18px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #E75480;
+        }
+
+        /* CONTEÚDO */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 50px auto;
+        }
+
+        .titulo {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .titulo h2 {
+            font-size: 38px;
+            margin-bottom: 10px;
+            color: #5d3428;
+        }
+
+        .titulo p {
+            color: #7a6a63;
+            font-size: 17px;
+        }
+
+        /* CATEGORIA */
+        .categoria {
+            margin-bottom: 55px;
+        }
+
+        .categoria h3 {
+            font-size: 30px;
+            color: #8a522c;
+            margin-bottom: 25px;
+            border-left: 5px solid #FFB6C8;
+            padding-left: 12px;
+        }
+
+        /* PRODUTOS */
+        .produtos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .produto {
+            background-color: #FFF4D6;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.10);
+            transition: 0.3s;
+        }
+
+        .produto:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.16);
+        }
+
+        .produto img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .info {
+            padding: 20px;
+        }
+
+        .info h4 {
+            font-size: 22px;
+            margin-bottom: 8px;
+            color: #482b21;
+        }
+
+        .info p {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #7a6a63;
+            margin-bottom: 18px;
+        }
+
+        .preco {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .valor {
+            font-size: 21px;
+            font-weight: bold;
+            color: #E8A96B;
+        }
+
+        .pedido {
+            background-color: #E75480;
+            color: white;
+            padding: 9px 14px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .pedido:hover {
+            background-color: #c73b65;
+        }
+
+        /* DESTAQUE */
+        .destaque {
+            background-color: #FFF4D6;
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .destaque h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: #5d3428;
+        }
+
+        .destaque p {
+            font-size: 17px;
+            color: #6e5750;
+        }
+
+        /* RODAPÉ */
+        footer {
+            background-color: #4A2F2A;
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+            margin-top: 60px;
+        }
+
+        footer h3 {
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        footer p {
+            margin: 7px 0;
+            color: #d8c6be;
+        }
+
+        /* CELULAR */
+        @media (max-width: 700px) {
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            nav a {
+                margin: 0 7px;
+                font-size: 13px;
+            }
+
+            .titulo h2 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- BANNER -->
+    <header>
+        <div class="hero">
+            <h1>Colher de Nuvem</h1>
+
+            <p>
+                Sorvetes artesanais, clássicos e bebidas preparados
+                com carinho todos os dias.
+            </p>
+
+            <a href="#cardapio" class="botao">
+                Ver Cardápio
+            </a>
+        </div>
+    </header>
+
+    <!-- MENU -->
+    <nav>
+        <a href="#classicos">Clássicos</a>
+        <a href="#tacas">Taças</a>
+        <a href="#sorbets">Sorbets</a>
+        <a href="#bebidas">Bebidas</a>
+    </nav>
+
+    <main class="container" id="cardapio">
+
+        <div class="titulo">
+            <h2>Nosso Cardápio</h2>
+        </div>
+
+        <!-- DESTAQUE -->
+        <section class="destaque">
+            <h2>✨ Especial da Casa</h2>
+            <p>
+                Experimente nosso especial Duna, de creme de amendoim
+                com pedaços crocantes de amendoim torrado.
+            </p>
+        </section>
+
+        <!-- CLÁSSICOS -->
+        <section class="categoria" id="classicos">
+
+            <h3>🍦 Clássicos</h3>
+
+            <div class="produtos">
+
+                <div class="produto">
+
+                    <img src="Imagens/Taça Tricolor de Sorvete no Estúdio Rosa.png">
+
+                    <div class="info">
+                        <h4>Três Estações</h4>
+
+                        <p>
+                            Três bolas, baunilha, chocolate e morango.
+                            O clássico Napolitano.
+                        </p>
+
+                        <div class="preco">
+                            <span class="valor">R$ 2,50</span>
+                            <a href="#" class="pedido">Pedir</a>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="produto">
+
+                    <img src="Imagens/Sorvete de chocolate com brownie.png">
+
+                    <div class="info">
+                        <h4>Meteoro</h4>
+
+                        <p>
+                            Sorvete de chocolate com pedaços
+                            crocantes de brownie.
+                        </p>
+
+                        <div class="preco">
+                            <span class="valor">R$ 16,90</span>
+                            <a href="#" class="pedido">Pedir</a>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="produto">
+
+                    <img src="Imagens/Sorvete de Morango com Chantilly.png">
+
+                    <div class="info">
+                        <h4>Redemoinhos Rosa</h4>
+
+                        <p>
+                         Sorvete de Morango com chantilly em redemoinhos.
+                        </p>
+
+                        <div class="preco">
+                            <span class="valor">R$ 8,90</span>
+                            <a href="#" class="pedido">Pedir</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- DOCES -->
+        <section class="categoria" id="tacas">
+
+            <h3>🍨 Taças</h3>
+
+            <div class="produtos">
+
+                <div class="produto">
+
+                    <img src="Imagens/Sundae de caramelo com castanhas.png">
+
+                    <div class="info">
+
+                        <h4>Nuvem Dourada</h4>
+
+                        <p>
+                         Três bolas de baunilha, creme e doce de leite,
+                         com calda de caramelo, chantilly e castanhas.
+                        </p>
+
+                        <div class="preco">
+                            <span class="valor">R$ 14,90</span>
+                            <a href="#" class="pedido">Pedir</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="produto">
+
+                    <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=800&q=80">
+
+                    <div class="info">
+
+                        <h4>Tempestade de Chocolate</h4>
+
+                        <p>
+                         Três bolas de chocolate (ao leite, meio amargo e branco),
+                          com calda quente e raspas de chocolate.
+                        </p>
+
+                        <div class="preco">
+                            <span class="valor">R$ 9,90</span>
+                            <a href="#" class="pedido">Pedir</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="produto">
+
+                    <img src="https://images.unsplash.com/photo-1575377427642-087cf684f29d?auto=format&fit=crop&w=800&q=80">
+
+                    <div class="info">
+
+                        <h4>Arco-íris Cremoso</h4>
+
+                        <p>
+                         Três bolas de sabores variados, com confete colorido,
+                          chantilly e calda de morango.
+                        </p>
+
+                        <div class="preco">
+                            <span class="valor">R$ 13,90</span>
+                            <a href="#" class="pedido">Pedir</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- SORBETS -->
+        <section class="categoria" id="sorbets">
+
+            <h3>🍧 Sorbets</h3>
+
+            <div class="produtos">
+
+                <div class="produto">
+
+                    <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=800&q=80">
+
+                    <div class="info">
+
+                        <h4>Brisa de Laranja</h4>
+
+                        <p>
+                             Suco de laranja-pera com raspas,
+                             leve e cheio de vitamina C.
+                        </p>
+
+                        <div class="preco">
+                            <span class="valor">R$ 19,90</span>
+                            <a href="#" class="pedido">Pedir</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="produto">
+
+                    <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=800&q=80">
+
+                    <div class="info">
+
+                        <h4>Maracujá Trovão</h4>
+
+                        <p>
+                             Maracujá com sementes crocantes,
+                             azedinho e intenso.
+                        </p>
+
+                        <div class="preco">
+                            <span class="valor">R$ 21,90</span>
+                            <a href="#" class="pedido">Pedir</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                      <div class="produtos">
+
+                <div class="produto">
+
+                    <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=800&q=80">
+
+                    <div class="info">
+
+                        <h4>Chuva de Frutas vermelhas</h4>
+
+                        <p>
+                             Morango, framboesa, amora e mirtilo,
+                             todos em um só sabor.
+                        </p>
+
+                        <div class="preco">
+                            <span class="valor">R$ 19,90</span>
+                            <a href="#" class="pedido">Pedir</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- BEBIDAS -->
+        <section class="categoria" id="bebidas">
+
+            <h3>🥤 Bebidas</h3>
+
+            <div class="produtos">
+
+                <div class="produto">
+
+                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80">
+
+                    <div class="info">
+
+                        <h4>Milkshake de Morango</h4>
+
+                        <p>
+                            Café recém-passado com grãos
+                            selecionados.
+                        </p>
+
+                        <div class="preco">
+                            <span class="valor">R$ 8,50</span>
+                            <a href="#" class="pedido">Pedir</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="produto">
+
+                    <img src="https://images.unsplash.com/photo-1572449043416-55f4685c9bb7?auto=format&fit=crop&w=800&q=80">
+
+                    <div class="info">
+
+                        <h4>Smoothie Sol Nascente </h4>
+
+                        <p>
+                            Café cremoso com leite,
+                            chocolate e canela.
+                        </p>
+
+                        <div class="preco">
+                            <span class="valor">R$ 12,90</span>
+                            <a href="#" class="pedido">Pedir</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="produto">
+
+                    <img src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=800&q=80">
+
+                    <div class="info">
+
+                        <h4>Suco Natural</h4>
+
+                        <p>
+                            Suco preparado na hora
+                            com frutas frescas.
+                        </p>
+
+                        <div class="preco">
+                            <span class="valor">R$ 11,90</span>
+                            <a href="#" class="pedido">Pedir</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- RODAPÉ -->
+    <footer>
+
+        <h3>Colher de Nuvem</h3>
+
+        <p>Qualidade, sabor e carinho em cada pedido.</p>
+
+        <p>📍 Rua dos Bobos, 0 </p>
+
+        <p>📞 (41) 99999-9999</p>
+
+        <p>🕐 Todos os dias — 06:00 às 21:00</p>
+
+    </footer>
+
+</body>
+</html>
+```
